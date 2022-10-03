@@ -4,7 +4,7 @@ import '../auth/user.js';
 // > Part A: import upload image
 import { uploadImage } from '../fetch-utils.js';
 // > Part B: import fetch to create a pet
-import { getPet } from '../fetch-utils.js';
+import { createPet } from '../fetch-utils.js';
 
 /* Get DOM Elements */
 const petForm = document.getElementById('pet-form');
@@ -49,7 +49,7 @@ petForm.addEventListener('submit', async (e) => {
     //    - call function to create the pet in the database
     //    - store the error and pets state from the response
     //    - either display the error or redirect the user to the home page
-    const response = await getPet(pet);
+    const response = await createPet(pet);
     error = response.error;
     addButton.disabled = false;
 

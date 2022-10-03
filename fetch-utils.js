@@ -32,13 +32,22 @@ export async function signOutUser() {
 // > Part B: Export async function that
 //      - inserts (creates) a supplied pet argument into supabase
 //      - returns a single data object (not an array)
-export async function getPet(pet) {
+export async function createPet(pet) {
     return await client.from('pets').insert(pet).single();
 }
 
 // > Part C: Export async function that
 //      - gets all pets from supabase
 //      - order the list by created date
+export async function getPets(name) {
+    let query = client.from('pets').select('*').limit(100);
+
+    // if (name) {
+    // query.ilike('name', `%${name}%`);
+    // }
+    // would be for adding a search function.
+    return await query;
+}
 
 /* Storage Functions */
 
